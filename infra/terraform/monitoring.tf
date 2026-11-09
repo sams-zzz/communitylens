@@ -55,9 +55,9 @@ resource "aws_cloudwatch_dashboard" "main" {
   dashboard_body = jsonencode({
     widgets = [
       {
-        type       = "metric"
-        width      = 12
-        height     = 6
+        type   = "metric"
+        width  = 12
+        height = 6
         properties = {
           title   = "Latence de génération (ms)"
           region  = var.region
@@ -67,9 +67,9 @@ resource "aws_cloudwatch_dashboard" "main" {
         }
       },
       {
-        type       = "metric"
-        width      = 12
-        height     = 6
+        type   = "metric"
+        width  = 12
+        height = 6
         properties = {
           title   = "Coût estimé par jour (USD)"
           region  = var.region
@@ -79,9 +79,9 @@ resource "aws_cloudwatch_dashboard" "main" {
         }
       },
       {
-        type       = "metric"
-        width      = 12
-        height     = 6
+        type   = "metric"
+        width  = 12
+        height = 6
         properties = {
           title   = "Replis sur le texte du code"
           region  = var.region
@@ -91,9 +91,9 @@ resource "aws_cloudwatch_dashboard" "main" {
         }
       },
       {
-        type       = "metric"
-        width      = 12
-        height     = 6
+        type   = "metric"
+        width  = 12
+        height = 6
         properties = {
           title   = "Tokens consommés"
           region  = var.region
