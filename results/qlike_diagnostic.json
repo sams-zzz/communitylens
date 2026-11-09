@@ -1,0 +1,40 @@
+{
+  "models": {
+    "ridge": {
+      "mean_error_log": 0.025557429498537523,
+      "qlike": 0.8100623298951822,
+      "qlike_median": 0.21610529104410725,
+      "share_underestimated": 0.5303286523049776
+    },
+    "har": {
+      "mean_error_log": 0.029365369241556128,
+      "qlike": 0.8966317427472439,
+      "qlike_median": 0.22547484020529385,
+      "share_underestimated": 0.5300161752812294
+    },
+    "persistence": {
+      "mean_error_log": -0.1587576364635336,
+      "qlike": 0.728588287432288,
+      "qlike_median": 0.2623319916968224,
+      "share_underestimated": 0.393206381883685
+    }
+  },
+  "qlike_ridge_vs_persistence": {
+    "statistic": 3.9501270971870706,
+    "p_value": 7.81097047502102e-05
+  },
+  "ridge_with_level_shift": {
+    "0.1": {
+      "qlike": 0.6726881424762443,
+      "mae": 0.40933002090317006
+    },
+    "0.2": {
+      "qlike": 0.5964695199416645,
+      "mae": 0.4284734791378518
+    },
+    "0.3": {
+      "qlike": 0.5703208390997656,
+      "mae": 0.46332061975152694
+    }
+  }
+}

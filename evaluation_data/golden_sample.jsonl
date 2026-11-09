@@ -1,0 +1,5 @@
+{"id":"exemple-1","note":"Cas écrit à la main pour tester l'outil, à remplacer par de vrais messages annotés.","passage":"La volatilité d'Apple va rester très forte cette semaine.","facts":{"F1":32.0,"F7":20.0},"expected":"soutenue"}
+{"id":"exemple-2","note":"Cas écrit à la main.","passage":"Apple est très calme en ce moment.","facts":{"F1":32.0,"F7":20.0},"expected":"contredite"}
+{"id":"exemple-3","note":"Cas écrit à la main.","passage":"Apple va annoncer un rachat géant le mois prochain.","facts":{"F1":32.0,"F7":20.0},"expected":"non_verifiable"}
+{"id":"exemple-4","note":"Cas écrit à la main.","passage":"Le marché s'est calmé, la volatilité d'Apple baisse nettement.","facts":{"F1":15.0,"F7":28.0},"expected":"soutenue"}
+{"id":"exemple-5","note":"Cas écrit à la main.","passage":"Les ventes de téléphones sont décevantes en Asie.","facts":{"F1":25.0,"F7":24.0},"expected":"non_verifiable"}

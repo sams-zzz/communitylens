@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.coverage
+htmlcov/
+.pytest_cache/
+data/
+*.pkl
+.terraform/
+*.tfstate*
+*.tfvars
+!*.tfvars.example
+node_modules/
+*.egg-info/

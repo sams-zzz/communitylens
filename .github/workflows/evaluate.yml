@@ -1,0 +1,36 @@
+name: Évaluation
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "Modèles à comparer, séparés par des espaces"
+        default: "bedrock:eu.amazon.nova-micro-v1:0"
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - run: make evaluate
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE }}
+          aws-region: eu-west-3
+      - name: Benchmark des LLM
+        env:
+          MODELS: ${{ inputs.models }}
+        run: python -m communitylens.evaluation.llm_eval --models $MODELS
+      - name: Injections sur le vrai modèle
+        env:
+          CL_LLM_BACKEND: bedrock
+        run: python -m communitylens.evaluation.injection_eval --mode configured --output results/injection_eval_real.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: resultats
+          path: results/

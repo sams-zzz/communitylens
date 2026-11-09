@@ -1,0 +1,34 @@
+# Démo locale : lancer d'abord `make demo`, qui prépare data/runtime.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    environment:
+      CL_DATA_DIR: /data
+      CL_STATIC_DIR: /app/frontend
+      CL_LLM_BACKEND: ${CL_LLM_BACKEND:-demo}
+      CL_OLLAMA_URL: http://ollama:11434
+    volumes:
+      - ./data/runtime:/data
+    ports:
+      - "8000:8080"
+  streamlit:
+    build:
+      context: .
+      dockerfile: docker/streamlit.Dockerfile
+    environment:
+      API_URL: http://api:8080
+    depends_on:
+      - api
+    ports:
+      - "8501:8501"
+  ollama:
+    profiles: ["llm"]
+    image: ollama/ollama
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+volumes:
+  ollama:

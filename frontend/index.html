@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CommunityLens</title>
+  <meta name="description" content="Confronter ce que dit une communauté d'investisseurs aux données de marché.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#">CommunityLens</a>
+    <form id="search" role="search">
+      <label for="query">Quel titre voulez-vous vérifier ?</label>
+      <div class="search-row">
+        <input id="query" list="tickers" autocomplete="off" placeholder="Apple ou AAPL">
+        <datalist id="tickers"></datalist>
+        <button type="submit">Vérifier</button>
+      </div>
+    </form>
+  </header>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <main id="report" hidden>
+    <p id="mode" class="mode" hidden></p>
+    <section class="verdict">
+      <h1 id="headline"></h1>
+      <p id="dated" class="dated"></p>
+    </section>
+
+    <section class="corridor" aria-labelledby="corridor-title">
+      <h2 id="corridor-title">Le risque prévu et ce qui s'est réellement passé</h2>
+      <p id="corridor-reading" class="reading"></p>
+      <div id="chart"></div>
+      <ul class="legend">
+        <li><span class="swatch band"></span>Intervalle annoncé à l'avance</li>
+        <li><span class="swatch line"></span>Prévision</li>
+        <li><span class="swatch dot"></span>Volatilité réellement observée</li>
+      </ul>
+    </section>
+
+    <div class="columns">
+      <section class="claims" aria-labelledby="claims-title">
+        <h2 id="claims-title">Ce que dit la communauté</h2>
+        <p id="summary" class="summary"></p>
+        <ol id="claims"></ol>
+        <p id="no-claims" class="empty" hidden>Aucune discussion récente n'a été analysée pour ce titre.</p>
+        <p id="limits" class="limits"></p>
+      </section>
+
+      <aside class="side">
+        <section aria-labelledby="drivers-title">
+          <h2 id="drivers-title">Ce qui pèse sur la prévision</h2>
+          <ul id="drivers"></ul>
+        </section>
+        <section aria-labelledby="share-title">
+          <h2 id="share-title">Partager avec votre communauté</h2>
+          <button id="copy" type="button">Copier le lien de cette analyse</button>
+          <p class="question">Cette analyse vous a-t-elle aidé ?</p>
+          <div class="votes">
+            <button id="vote-yes" type="button">Oui</button>
+            <button id="vote-no" type="button">Non</button>
+          </div>
+          <p id="vote-result" class="vote-result" role="status"></p>
+        </section>
+      </aside>
+    </div>
+
+    <details class="reliability" id="reliability">
+      <summary>Peut-on faire confiance à ce modèle ?</summary>
+      <div id="reliability-body"></div>
+    </details>
+  </main>
+
+  <footer>
+    <p>Outil pédagogique. Il ne donne aucun conseil d'investissement.</p>
+  </footer>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

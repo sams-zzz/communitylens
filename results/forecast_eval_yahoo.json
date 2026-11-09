@@ -1,0 +1,125 @@
+{
+  "dataset": {
+    "tickers": 28,
+    "start": "2016-11-04",
+    "end": "2026-11-03",
+    "out_of_sample_points": 54404,
+    "out_of_sample_start": "2019-02-05",
+    "horizon_days": 5
+  },
+  "volatility": {
+    "models": {
+      "ridge": {
+        "mae": 0.4068213238529532,
+        "qlike": 0.8100623298951822,
+        "r2_vs_historical_mean": 0.2407232865401484,
+        "correlation": 0.5310087120232934
+      },
+      "xgboost": {
+        "mae": 0.41051413338433335,
+        "qlike": 0.8728400395785085,
+        "r2_vs_historical_mean": 0.2235272307177545,
+        "correlation": 0.5171907921720051
+      },
+      "har": {
+        "mae": 0.41768269877080433,
+        "qlike": 0.8966317427472439,
+        "r2_vs_historical_mean": 0.19759899636063616,
+        "correlation": 0.4923032784481692
+      },
+      "persistence": {
+        "mae": 0.4623243437138329,
+        "qlike": 0.728588287432288,
+        "r2_vs_historical_mean": 0.027428198351810873,
+        "correlation": 0.4678202918156938
+      },
+      "historical_mean": {
+        "mae": 0.4617439520504849,
+        "qlike": 1.7847210619297016,
+        "r2_vs_historical_mean": 0.0,
+        "correlation": 0.3154116005916306
+      }
+    },
+    "versus_ridge": {
+      "xgboost": {
+        "statistic": -1.6854755754109045,
+        "p_value": 0.09189685329240777
+      },
+      "har": {
+        "statistic": -4.005335857872464,
+        "p_value": 6.192942567484919e-05
+      },
+      "persistence": {
+        "statistic": -11.986429648710544,
+        "p_value": 4.185602566262918e-33
+      },
+      "historical_mean": {
+        "statistic": -4.823795783871838,
+        "p_value": 1.4085163346439582e-06
+      }
+    },
+    "tickers_won": {
+      "xgboost": 22,
+      "har": 28,
+      "persistence": 28,
+      "historical_mean": 28
+    }
+  },
+  "intervals": {
+    "rolling_80": {
+      "target": 0.8,
+      "coverage": 0.792860944271269,
+      "points": 52612,
+      "mean_half_width_log": 0.6662331939934397,
+      "ticker_coverage_min": 0.7802022352315061,
+      "ticker_coverage_max": 0.8036189462480042,
+      "tickers_measured": 28
+    },
+    "adaptive_80": {
+      "target": 0.8,
+      "coverage": 0.7998175321219494,
+      "points": 52612,
+      "mean_half_width_log": 0.696702575178509,
+      "ticker_coverage_min": 0.795635976583289,
+      "ticker_coverage_max": 0.8036189462480042,
+      "tickers_measured": 28
+    },
+    "rolling_90": {
+      "target": 0.9,
+      "coverage": 0.890234167110165,
+      "points": 52612,
+      "mean_half_width_log": 0.8897347877733423,
+      "ticker_coverage_min": 0.8781266631186802,
+      "ticker_coverage_max": 0.9042043640234168,
+      "tickers_measured": 28
+    },
+    "adaptive_90": {
+      "target": 0.9,
+      "coverage": 0.8988806967948962,
+      "points": 52354,
+      "mean_half_width_log": 0.9476907542392017,
+      "ticker_coverage_min": 0.8951086956521739,
+      "ticker_coverage_max": 0.9010111761575306,
+      "tickers_measured": 28
+    }
+  },
+  "direction": {
+    "points": 54516,
+    "always_up_accuracy": 0.5206911732335461,
+    "constant_brier": 0.24962903957217109,
+    "logistic": {
+      "accuracy": 0.5176461956122973,
+      "auc": 0.5026776633393202,
+      "brier": 0.24975709481907937,
+      "share_high_confidence": 1.8343238682221733e-05,
+      "accuracy_high_confidence": 1.0
+    },
+    "xgboost": {
+      "accuracy": 0.5098686624110353,
+      "auc": 0.4981597150851545,
+      "brier": 0.25218125899056476,
+      "share_high_confidence": 0.022837332159366057,
+      "accuracy_high_confidence": 0.5349397590361445
+    }
+  }
+}

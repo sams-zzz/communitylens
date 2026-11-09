@@ -1,0 +1,3 @@
+budget_email      = "votre.adresse@example.org"
+github_repository = "votre-organisation/communitylens"
+sec_user_agent    = "CommunityLens projet etudiant votre.adresse@example.org"
